@@ -2,4 +2,9 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+    <fullyQualifiedTypeName name="org.apache.taglibs.standard.resources.Resources"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.io.Resources"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
 </qualifiedTypeNameHistroy>
