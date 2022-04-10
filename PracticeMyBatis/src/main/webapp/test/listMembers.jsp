@@ -24,7 +24,7 @@
       <td><b>가입일</b></td>
    </tr>
    
- <c:forEach var="member" items="${memberList}" >     
+ <c:forEach var="member" items="${membersList}" >     
    <tr align="center">
       <td>${member.id}</td>
       <td>${member.pwd}</td>

@@ -1,7 +1,0 @@
-package ex01;
-
-import org.springframework.web.servlet.mvc.Controller;
-
-public class SimpleUrlController implements Controller {
-
-}

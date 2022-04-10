@@ -1,6 +1,7 @@
 package ex01;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -44,11 +45,25 @@ protected void doHandle(HttpServletRequest request, HttpServletResponse response
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		MemberDAO dao = new MemberDAO();
-		List<MemberVO> membersList = dao.selectAllMemberList();
-		request.setAttribute("memberList", membersList);
+		MemberVO memberVO = new MemberVO();
 		
-		RequestDispatcher dispatch = request.getRequestDispatcher("test/listMembers.jsp");
+		String action = request.getParameter("action");
+		String nextPage= "" ;
+		
+		if (action== null || action.equals("listMembers")) {
+			List<MemberVO> membersList = dao.selectAllMemberList();
+			request.setAttribute("membersList", membersList);
+			nextPage = "test/listMembers.jsp";
+		} else if (action.equals("selectMemberById")) {
+			String id = request.getParameter("id");
+			memberVO = dao.selectMemberById(id);
+			request.setAttribute("member", memberVO);
+			nextPage = "test/memberInfo.jsp";
+		}
+		
+		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
 		dispatch.forward(request, response);
+		
 	}
 
 }

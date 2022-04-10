@@ -15,6 +15,12 @@
    <select id="selectAllMemberList" resultMap="memResult" >
    <![CDATA[select * from t_member order by joinDate desc]]>
    </select>
+   
+   <select id="selectMemberById" resultType="memberVO" parameterType="String"> 
+   <![CDATA[select * from t_member where id= #{id}]]> 
+   <!--#{}형식을 이용하여 매개변수를 받을 수 있고, 매개변수명과 인자명을 동일하게 해주어야한다 -->
+   </select>
+   
    </mapper>
    
    
