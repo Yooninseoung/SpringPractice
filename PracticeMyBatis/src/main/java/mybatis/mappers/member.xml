@@ -12,12 +12,23 @@
         <result property="joinDate" column="joinDate" />
    </resultMap>
    
+   <!-- sql태그와 include태그를 이용하여 중복을 제거 가능 -->
+   <sql id="member">
+   <![CDATA[select * from t_member]]>
+   </sql>
+   
    <select id="selectAllMemberList" resultMap="memResult" >
-   <![CDATA[select * from t_member order by joinDate desc]]>
+   <include refid="member" /> order by joinDate desc
    </select>
    
    <select id="selectMemberById" resultType="memberVO" parameterType="String"> 
-   <![CDATA[select * from t_member where id= #{id}]]> 
+   <include refid="member" /> 
+   <!-- 동적 sql문 예시 >> if, choose, foreach태그를 이용하여 동적으로 sql문을 작성 할 수 있다. 874pg 참고..-->
+   <where>
+   <if test="id != '' and id != null">
+   id=#{id}
+   </if>
+   </where>
    <!--#{}형식을 이용하여 매개변수를 받을 수 있고, 매개변수명과 인자명을 동일하게 해주어야한다 -->
    </select>
    
