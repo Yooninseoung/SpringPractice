@@ -59,6 +59,36 @@ protected void doHandle(HttpServletRequest request, HttpServletResponse response
 			memberVO = dao.selectMemberById(id);
 			request.setAttribute("member", memberVO);
 			nextPage = "test/memberInfo.jsp";
+		}else if (action.equals("insertMember")) {
+			String id = request.getParameter("id");
+			String pwd =request.getParameter("pwd");
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			memberVO.setId(id);
+			memberVO.setPwd(pwd);
+			memberVO.setName(name);
+			memberVO.setEmail(email);
+			
+			dao.insertMember(memberVO);
+		
+			nextPage = "/mem.do?action=listMembers";
+		}else if (action.equals("updateMember")) {
+			String id = request.getParameter("id");
+			String pwd =request.getParameter("pwd");
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			memberVO.setId(id);
+			memberVO.setPwd(pwd);
+			memberVO.setName(name);
+			memberVO.setEmail(email);
+			
+			dao.updateMember(memberVO);
+		
+			nextPage = "/mem.do?action=listMembers";
+		}else if (action.equals("deleteMember")) {
+			String id = request.getParameter("id");
+			dao.deleteMember(id);
+			nextPage = "/mem.do?action=listMembers";
 		}
 		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);

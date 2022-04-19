@@ -40,5 +40,35 @@ public class MemberDAO {
 		MemberVO memberVO = session.selectOne("mapper.member.selectMemberById", id);
 		return memberVO;
 	}
+	
+	public int insertMember(MemberVO memberVO) {
+		
+		sqlMapper = getInstance();
+		SqlSession session  = sqlMapper.openSession();
+		int result = 0;
+		result=session.insert("mapper.member.insertMember", memberVO);
+		session.commit();
+		return result;
+	}
+	
+	public int updateMember(MemberVO memberVO) {
+		
+		sqlMapper = getInstance();
+		SqlSession session  = sqlMapper.openSession();
+		int result = 0;
+		result=session.update("mapper.member.updateMember", memberVO);
+		session.commit();
+		return result;
+	}
+	
+	public int deleteMember(String id) {
+		sqlMapper = getInstance();
+		SqlSession session  = sqlMapper.openSession();
+		int result = 0;
+		result=session.delete("mapper.member.deleteMember", id);
+		session.commit();
+		System.out.println("반환 값 : "+result);
+		return result;
+	}
 
 }
