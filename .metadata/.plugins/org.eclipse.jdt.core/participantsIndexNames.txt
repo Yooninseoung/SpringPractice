@@ -3,3 +3,5 @@ C:\SpringPractice\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\10621684
 \SpringMVCFunc\src\main\java
 C:\SpringPractice\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1854841665.index
 \PracticeMyBatis\src\main\java
+C:\SpringPractice\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3447169495.index
+\SpringMyBatis\src\main\java

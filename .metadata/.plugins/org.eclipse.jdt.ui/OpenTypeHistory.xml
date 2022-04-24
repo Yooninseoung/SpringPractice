@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=SpringMVCFunc/C:\/SpringPractice\/SpringMVCFunc\/src\/main\/webapp\/WEB-INF\/lib\/org.springframework.web.servlet-3.0.6.RELEASE.jar&lt;org.springframework.web.servlet.mvc(Controller.class[Controller" modifiers="1537" timestamp="1648775568753"/>
+    <typeInfo handle="=SpringMyBatis/src\/main\/java&lt;member.controller{MemberController.java[MemberController" modifiers="513" timestamp="1650800122021"/>
+    <typeInfo handle="=SpringMyBatis/src\/main\/java&lt;member.service{MemberService.java[MemberService" modifiers="513" timestamp="1650801713490"/>
+    <typeInfo handle="=SpringMyBatis/src\/main\/java&lt;member.dao{MemberDAO.java[MemberDAO" modifiers="513" timestamp="1650801709720"/>
+    <typeInfo handle="=SpringMyBatis/C:\/SpringPractice\/SpringMyBatis\/src\/main\/webapp\/WEB-INF\/lib\/mybatis-3.0.5.jar&lt;org.apache.ibatis.ognl(MemberAccess.class[MemberAccess" modifiers="1537" timestamp="1650758789392"/>
 </typeInfoHistroy>
