@@ -19,6 +19,13 @@
          select * from t_member	order by joinDate desc	 	
       ]]>
 	</select>
+	
+	<select id="loginById" resultType="memberVO" parameterType="memberVO">
+	 <![CDATA[
+	select * from t_member
+	where id = #{id} and pwd=#{pwd}			
+    ]]>
+	</select>
 
 	<select id="selectName" resultType="String">
     <![CDATA[
