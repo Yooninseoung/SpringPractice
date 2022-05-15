@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-@Controller
+//thumbnail 기능 사용을 위해 controller를 주석처리 함
+//@Controller 
 public class FileDownloadController {
 	private static String CURR_IMAGE_REPO_PATH = "c:\\spring\\image-repo";
 	
