@@ -22,6 +22,8 @@
 			<beans:value>classpath:tiles/*.xml</beans:value>
 		</beans:list>
 	</beans:property>
+	
+	<!-- 타일즈 설정 -->
 	<beans:property name="preparerFactoryClass"
 			          value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory" />
 </beans:bean>
@@ -29,6 +31,8 @@
 <beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
 </beans:bean>
 	 
+	 
+   
 	<context:component-scan base-package="com.myspring.MavenAndSts" />
 	
 	
