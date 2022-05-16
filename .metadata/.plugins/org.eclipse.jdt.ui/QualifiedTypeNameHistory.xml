@@ -15,4 +15,6 @@
     <fullyQualifiedTypeName name="memberList.member.vo.MemberVO"/>
     <fullyQualifiedTypeName name="org.slf4j.Logger"/>
     <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="net.coobird.thumbnailator.Thumbnails"/>
 </qualifiedTypeNameHistroy>
