@@ -35,7 +35,7 @@ public class MemberControllerImpl   implements MemberController {
 	@Override
 	@RequestMapping(value="/member/listMembers.do" ,method = RequestMethod.GET)
 	public ModelAndView listMembers(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String viewName = getViewName(request);
+		String viewName = (String)request.getAttribute("viewName"); //ViewNameInterceptor에서 viewName을 setAttribute로 보냈기에 getAttribute로 받는다.
 		logger.info("info전용 viewName = " + viewName); //메소드에 따라 레벨이 다름
 		logger.debug("debug전용 viewName = " + viewName);
 		List membersList = memberService.listMembers();
@@ -108,37 +108,5 @@ public class MemberControllerImpl   implements MemberController {
 		return mav;
 	}
 	
-
-	private String getViewName(HttpServletRequest request) throws Exception {
-		String contextPath = request.getContextPath();
-		String uri = (String) request.getAttribute("javax.servlet.include.request_uri");
-		if (uri == null || uri.trim().equals("")) {
-			uri = request.getRequestURI();
-		}
-
-		int begin = 0;
-		if (!((contextPath == null) || ("".equals(contextPath)))) {
-			begin = contextPath.length();
-		}
-
-		int end;
-		if (uri.indexOf(";") != -1) {
-			end = uri.indexOf(";");
-		} else if (uri.indexOf("?") != -1) {
-			end = uri.indexOf("?");
-		} else {
-			end = uri.length();
-		}
-
-		String viewName = uri.substring(begin, end);
-		if (viewName.indexOf(".") != -1) {
-			viewName = viewName.substring(0, viewName.lastIndexOf("."));
-		}
-		if (viewName.lastIndexOf("/") != -1) {
-			viewName = viewName.substring(viewName.lastIndexOf("/",1), viewName.length());
-		}
-		return viewName;
-	}
-
 
 }
