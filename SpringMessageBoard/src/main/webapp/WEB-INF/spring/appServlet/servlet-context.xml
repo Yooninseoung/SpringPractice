@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+	xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>classpath:tiles/*.xml</beans:value>
+			</beans:list>
+
+		</beans:property>
+
+		<!-- 타일즈 설정 -->
+		<beans:property name="preparerFactoryClass"
+			value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory" />
+	</beans:bean>
+
+
+	<beans:bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView" />
+	</beans:bean>
+
+
+
+	<context:component-scan
+		base-package="com.spring.SpringMessageBoard" />
+		
+		
+			<!-- 다중 파일 업로드 이용을 도와주는 CommonsMultipartResolver -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<!-- 최대 업로드가 가능한 파일의 크기를 설정 -->
+	<beans:property name="maxUploadSize" value="52428800" /> 
+	<!-- 디스크에 임시 파일을 생성하기전 메모리에 보관할수있는 최대 바이트 크기를 설정 -->
+	<beans:property name="maxInMemorySize" value="1000000" />
+	<!-- 전달되는 매개변수의 인코딩을 설정 -->
+	<beans:property name="defaultEncoding" value="utf-8" />
+	</beans:bean>
+		
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*/*.do" />
+			<beans:bean
+				class="com.spring.SpringMessageBoard.common.interceptor.ViewNameInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+</beans:beans>
